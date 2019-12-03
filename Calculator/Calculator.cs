@@ -23,7 +23,14 @@ namespace Calculator
 
         public static double Divide(double x, double y)
         {
-            return x / y;
+            if (y != 0)
+            {
+                return x / y; 
+            }
+            else
+            {
+                return 0;
+            }
         }
     }
 }

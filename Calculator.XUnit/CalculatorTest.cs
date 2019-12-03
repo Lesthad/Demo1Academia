@@ -1,39 +1,30 @@
-﻿using NUnit.Framework;
 using System;
-using System.Collections.Generic;
-using System.Text;
+using Xunit;
 
-namespace Calculator.NUnit
+namespace Calculator.XUnit
 {
-    class CalculatorTest
+    public class CalculatorTest
     {
-        //[SetUp]
-        //public void Setup()
-        //{
-        //}
-
-        //[Test]
-        //public void Test1()
-        //{
-        //    Assert.Pass();
-        //}
-
-        [Test]
-        public void GivenTwoValues_WhenPerformingAddOperation_ThenShouldReturnTheSum()
+        //[Fact]
+        [Theory]
+        [InlineData(2,3,5)]
+        [InlineData(20, 11, 31)]
+        [InlineData(1.5, 7.4, 8.9)]
+        public void GivenTwoValues_WhenPerformingAddOperation_ThenShouldReturnTheSum(double x, double y, double expected)
         {
             //Arrenge
-            double expected = 2;
-            double x = 1;
-            double y = 1;
+            //double expected = 2;
+            //double x = 1;
+            //double y = 1;
 
             //Act
             var result = Calculator.Add(x, y);
 
             //Assert
-            Assert.AreEqual(expected, result);
+            Assert.Equal(expected, result);
         }
 
-        [Test]
+        [Fact]
         public void GivenTwoValues_WhenPerformingSubstractOperation_ThenShouldReturnTheDifference()
         {
             //Arrenge
@@ -45,10 +36,10 @@ namespace Calculator.NUnit
             var result = Calculator.Substract(x, y);
 
             //Assert
-            Assert.AreEqual(expected, result);
+            Assert.Equal(expected, result);
         }
 
-        [Test]
+        [Fact]
         public void GivenTwoValues_WhenPerformingMultiplyOperation_ThenShouldReturnTheNewValue()
         {
             //Arrenge
@@ -60,10 +51,10 @@ namespace Calculator.NUnit
             var result = Calculator.Multipliy(x, y);
 
             //Assert
-            Assert.AreEqual(expected, result);
+            Assert.Equal(expected, result);
         }
 
-        [Test]
+        [Fact]
         public void GivenTwoValues_WhenPerformingDivisionOperation_ThenShouldReturnTheNewValue()
         {
             //Arrenge
@@ -75,10 +66,10 @@ namespace Calculator.NUnit
             var result = Calculator.Divide(x, y);
 
             //Assert
-            Assert.AreEqual(expected, result);
+            Assert.Equal(expected, result);
         }
 
-        [Test]
+        [Fact]
         public void Divide_DivideByZero()
         {
             // Arrange
@@ -88,7 +79,7 @@ namespace Calculator.NUnit
             double actual = Calculator.Divide(15, 0);
 
             // Assert
-            Assert.AreEqual(expected, actual);
+            Assert.Equal(expected, actual);
         }
     }
 }
